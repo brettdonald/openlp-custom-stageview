@@ -20,7 +20,7 @@ Customisations include:
 2. Inside the data folder, create a folder named `stages` if it doesn’t already exist
 3. Inside the `stages` folder, create a folder which will be the name of your custom view, for example `mycustom1`
 4. Download the files from this GitHub project and place them into the folder `mycustom1`
-5. In a web browser, browse the address http://:4316/stage/mycustom1, 
+5. In a web browser, browse the address http://your-openlp-ip-address:4316/stage/mycustom1, 
 
 ## Meta Slides
 
