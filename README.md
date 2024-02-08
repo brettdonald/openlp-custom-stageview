@@ -5,11 +5,11 @@ An OpenLP Custom Stage View based on the [starter ZIP file](https://manual.openl
 Customisations include:
 
 * larger margins at the edges
-* a better-proportioned, more sophisticated and therefore more readable font (Noto Sans)
+* a better-proportioned, more sophisticated and therefore more readable font ([Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans))
 * larger font size for better readability
   * 60px for the current slide
   * 45px for the upcoming slides
-* header containing the verse order and the clock is managed as a flexbox rather than a float
+* header containing the verse order and the clock is managed as a flexbox rather than a float for better control when the verse order is long enough to wrap
 * meta slides displayed in a smaller font (14px) 
 
 <img width="1317" alt="image" src="https://github.com/brettdonald/openlp-custom-stageview/assets/4504348/409ebe4a-32d5-453f-a013-f4bd4198e6a7">
