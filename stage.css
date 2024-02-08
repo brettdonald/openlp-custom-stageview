@@ -1,0 +1,52 @@
+body {
+  background-color: black;
+  font-family: 'Noto Sans', sans-serif;
+  overflow: hidden;
+  margin: 1em 2em 1em 3em;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 2em;
+  margin-bottom: 20px;
+}
+
+#verseorder {
+  font-size: 42px;
+  color: green;
+}
+
+.currenttag {
+  color: lightgreen;
+  font-weight: bold;
+}
+
+#clock {
+  font-size: 48px;
+  color: yellow;
+  text-align: right;
+  font-weight: normal;
+}
+
+#currentslide {
+  font-size: 60px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+#currentslide img {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+#nextslide {
+  font-size: 45px;
+  color: #bbb;
+}
+
+#currentslide.meta, .nextslide.meta {
+  font-size: 14px;
+}
