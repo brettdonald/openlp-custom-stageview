@@ -10,9 +10,9 @@ Customisations include:
   * 60px for the current slide
   * 45px for the upcoming slides
 * header containing the verse order and the clock is managed as a flexbox rather than a float for better control when the verse order is long enough to wrap
-* meta slides displayed in a smaller font (14px) 
-
-<img width="1317" alt="image" src="https://github.com/brettdonald/openlp-custom-stageview/assets/4504348/409ebe4a-32d5-453f-a013-f4bd4198e6a7">
+* meta slides displayed in a smaller font (14px)
+ 
+![image](https://github.com/brettdonald/openlp-custom-stageview/assets/4504348/e5f23fee-aa4a-4ce1-a282-09bda1e496a2)
 
 ## Setup
 
