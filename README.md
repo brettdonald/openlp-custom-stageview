@@ -16,8 +16,6 @@ Customisations include:
 
 ## Setup
 
-To create a custom stage view, go to the OpenLP Data Folder by going to Tools ‣ Open Data Folder. Inside the data folder create a folder names stages. Inside the stages folder you can now create a folder which will be the name of your custom view, an example could be myview. Now copy stage.html, stage.css and stages.js from Custom Stage View Zip and customize them to your needs.
-
 1. Locate the OpenLP data folder using the menu option Tools > Open Data Folder
 2. Inside the data folder, create a folder named `stages` if it doesn’t already exist
 3. Inside the `stages` folder, create a folder which will be the name of your custom view, for example `mycustom1`
