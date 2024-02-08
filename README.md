@@ -12,6 +12,8 @@ Customisations include:
 * header containing the verse order and the clock is managed as a flexbox rather than a float
 * meta slides displayed in a smaller font (14px) 
 
+<img width="1317" alt="image" src="https://github.com/brettdonald/openlp-custom-stageview/assets/4504348/409ebe4a-32d5-453f-a013-f4bd4198e6a7">
+
 ## Setup
 
 To create a custom stage view, go to the OpenLP Data Folder by going to Tools ‣ Open Data Folder. Inside the data folder create a folder names stages. Inside the stages folder you can now create a folder which will be the name of your custom view, an example could be myview. Now copy stage.html, stage.css and stages.js from Custom Stage View Zip and customize them to your needs.
