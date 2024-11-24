@@ -3,6 +3,7 @@ body {
   font-family: 'Noto Sans', sans-serif;
   overflow: hidden;
   margin: 1em 2em 1em 3em;
+  line-height: 1.3;
 }
 
 header {
@@ -49,4 +50,8 @@ header {
 
 #currentslide.meta, .nextslide.meta {
   font-size: 14px;
+}
+
+p.nextslide {
+  margin: 10px 0;
 }
