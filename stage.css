@@ -31,7 +31,7 @@ header {
 }
 
 #currentslide {
-  font-size: 60px;
+  font-size: 54px;
   color: white;
   margin-bottom: 10px;
 }
@@ -43,8 +43,8 @@ header {
 }
 
 #nextslide {
-  font-size: 45px;
-  color: #bbb;
+  font-size: 42px;
+  color: #999;
 }
 
 #currentslide.meta, .nextslide.meta {
