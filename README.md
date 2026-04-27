@@ -11,8 +11,9 @@ Customisations include:
 * meta slides displayed in a smaller font
 * image slides are displayed at high resolution
 
-<img width="640px" src="https://github.com/user-attachments/assets/4a7a9045-1b4c-4420-884b-75985ffef712" />
-<img width="640px" src="https://github.com/user-attachments/assets/c7443a50-bd38-414c-8bd9-7a39dbb00227" />
+Comparative illustration; standard stage view on the left, this custom stage view on the right:
+
+<img src="https://github.com/user-attachments/assets/147dfe87-43ff-4397-bd0e-0153e2586b97" />
 
 ## Setup
 
