@@ -10,13 +10,22 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  gap: 2em;
+  gap: 3em;
   margin-bottom: 20px;
+  line-height: 1;
 }
 
 #verseorder {
+  margin-left: -3rem;
+  padding-left: 3rem;
   font-size: 42px;
   color: green;
+  white-space: nowrap;
+  overflow: auto;
+  scrollbar-width: none;  
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .currenttag {
@@ -37,11 +46,26 @@ header {
   margin-bottom: 10px;
 }
 
+.bd-image-slide {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 80px;
+  width: 100%;
+  height: calc(100% - 80px);
+  object-fit: contain;
+  object-position: center;
+  background: black;
+  box-sizing: border-box;
+}
+
+/*
 #currentslide img {
   width: 50%;
   display: block;
   margin: 0 auto;
 }
+*/
 
 #nextslide {
   font-size: 42px;

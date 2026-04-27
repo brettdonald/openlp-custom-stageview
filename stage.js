@@ -21,6 +21,7 @@
 
 // functions to determine whether the current slide contains meta information such as CCLI details
 const isCCLI = i => {
+  if (typeof i !== 'string') return false
   return (i.tag.startsWith('I') || i.tag.startsWith('O')) && (i.html.match(/©|ccli|lyrics|music|publish/i) != null)
 }
 const notCCLI = i => {
@@ -53,7 +54,7 @@ window.OpenLP = { // Connect to the OpenLP Remote WebSocket to get pushed update
           OpenLP.currentSlide = parseInt(data.slide, 10);
           OpenLP.updateSlide();
         }
-        OpenLP.loadService();
+//        OpenLP.loadService();
       };
     reader.readAsText(event.data);
     };
@@ -140,61 +141,83 @@ window.OpenLP = { // Connect to the OpenLP Remote WebSocket to get pushed update
     );
   },
   
+  loadImage: function (event) {
+    $.getJSON(
+      "/api/v2/core/live-image",
+      function (data, status) {
+        document.querySelector('.bd-image-slide').src = data.binary_image
+      }
+    );
+  },
+  
   updateSlide: function() {
-    // Show the current slide on top. Any trailing slides for the same verse
-    // are shown too underneath in grey.
-    // Then leave a blank line between following verses
-    $("#verseorder span").removeClass("currenttag");
-    $("#tag" + OpenLP.currentTags[OpenLP.currentSlide]).addClass("currenttag");
-    var slide = OpenLP.currentSlides[OpenLP.currentSlide];
-    var text = "";
-    let ccli = false;
-    // use title if available
-    if (slide["text"]) {
-        text = slide["text"];
-    } else {
-        text = slide["Title"];
+    if (OpenLP.currentSlide === undefined) return
+
+    // highlight the current verse (sequence tag) at the top of the screen (keeping it in the centre if there are lots of tags)
+    $("#verseorder span").removeClass("currenttag")
+    const currentTag = document.getElementById("tag" + OpenLP.currentTags[OpenLP.currentSlide])
+    currentTag.classList.add("currenttag")
+    currentTag.scrollIntoView({behavior: "smooth", block: "nearest", inline: "center"})
+
+    // render contents of current slide
+    const slide = OpenLP.currentSlides[OpenLP.currentSlide]
+    let text2 = ""
+    let ccli = false
+
+    if (slide["img"]) {             // renders a low-res thumbnail image ... the high-res image is fetched at the end of this function
+      text2 = '<img class="bd-image-slide" src="' + slide['img'].replace('//thumbnails//', '//thumbnails//') + '">';
     }
-    // use thumbnail if available
-    if (slide["img"]) {
-        text += "<br><img src='" + slide["img"].replace("//thumbnails//", "//thumbnails//") + "'><br>";
+    else if (slide["text"]) {
+      text2 = slide["text"]
     }
-    // use notes if available
+    else {
+      text2 = slide["Title"]
+    }
+    
+    // display notes if available
     if (slide["slide_notes"]) {
-        text += '<br>' + slide["footer"];
+        text2 += '<br>' + slide["footer"]
     }
+    
     ccli = isCCLI(slide)
-    text = text.replace(/\n/g, ccli ? " " : "<br>");
-    $("#currentslide").html(text);
-    const cs = document.getElementById('currentslide');
+    if (text2) text2 = text2.replace(/\n/g, ccli ? " " : "<br>")
+    
+    const cs = document.getElementById('currentslide')
+    cs.innerHTML = text2
     if (ccli)
       cs.classList.add('meta')
     else
       cs.classList.remove('meta')
     
-    text = "";
+    // render contents of next n slides
+    text2 = ""
     if (OpenLP.currentSlide < OpenLP.currentSlides.length - 1) {
       for (var idx = OpenLP.currentSlide + 1; idx < OpenLP.currentSlides.length; idx++) {
         ccli = false
         if (OpenLP.currentTags[idx] != OpenLP.currentTags[idx - 1]) {
             ccli = isCCLI(OpenLP.currentSlides[idx])
-            text = text + `<p class="nextslide ${ccli ? 'meta' : ''}">`
+            text2 += `<p class="nextslide ${ccli ? 'meta' : ''}">`
         }
         if (OpenLP.currentSlides[idx]["text"])
-            text = text + (ccli ? OpenLP.currentSlides[idx]["text"].replace(/\n/g, ' ') : OpenLP.currentSlides[idx]["text"])
+            text2 += (ccli ? OpenLP.currentSlides[idx]["text"].replace(/\n/g, ' ') : OpenLP.currentSlides[idx]["text"])
         else
-            text = text + OpenLP.currentSlides[idx]["title"]
+            text2 += OpenLP.currentSlides[idx]["title"]
         if (OpenLP.currentTags[idx] != OpenLP.currentTags[idx - 1])
-            text = text + "</p>"
+            text2 += "</p>"
         else        
-            text = text + "<br>"
+            text2 += "<br>"
       }
-      text = text.replace(/\n/g, "<br>")
-      $("#nextslide").html(text)
+      text2 = text2.replace(/\n/g, "<br>")
+      $("#nextslide").html(text2)
     }
     else {
-      text = "<p class=\"nextslide\">" + $("#next-text").val() + ": " + OpenLP.nextSong + "</p>"
+      text = '<p class="nextslide" style="margin-top: 2em;">' + $("#next-text").val() + ': ' + OpenLP.nextSong + '</p>'
       $("#nextslide").html(text)
+    }
+
+    // if this is an image slide, fetch the high-res image and render it
+    if (slide["img"]) {
+        OpenLP.loadImage();
     }
   },
   
