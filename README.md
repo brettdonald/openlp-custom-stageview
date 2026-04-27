@@ -12,6 +12,7 @@ Customisations include:
 * image slides are displayed at high resolution
  
 ![image](https://github.com/brettdonald/openlp-custom-stageview/assets/4504348/e5f23fee-aa4a-4ce1-a282-09bda1e496a2)
+<img alt="csv2" src="https://github.com/user-attachments/assets/c7443a50-bd38-414c-8bd9-7a39dbb00227" />
 
 ## Setup
 
