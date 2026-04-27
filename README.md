@@ -10,9 +10,9 @@ Customisations include:
 * header containing the verse order and the clock now handles songs with many verses by scrolling horizontally (automatically).
 * meta slides displayed in a smaller font
 * image slides are displayed at high resolution
- 
-<img src="https://github.com/user-attachments/assets/357c2f79-6019-4916-a171-2de893741e46" />
-<img src="https://github.com/user-attachments/assets/c7443a50-bd38-414c-8bd9-7a39dbb00227" />
+
+<img width="640px" src="https://github.com/user-attachments/assets/4a7a9045-1b4c-4420-884b-75985ffef712" />
+<img width="640px" src="https://github.com/user-attachments/assets/c7443a50-bd38-414c-8bd9-7a39dbb00227" />
 
 ## Setup
 
