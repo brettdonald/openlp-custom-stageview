@@ -1,4 +1,4 @@
-# openlp-custom-stageview
+# OpenLP Custom Stage View
 
 An OpenLP Custom Stage View based on the [starter ZIP file](https://manual.openlp.org/stage_view.html#custom-stage-views) provided by OpenLP.
 
